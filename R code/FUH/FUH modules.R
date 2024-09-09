@@ -268,11 +268,7 @@ FUH_pathway_module<-function(df){
     ungroup()
   
   
-  # manually check/refine the case if more than one stent or band. maybe have better method to do it
-  df$auxhybrid[which(df$launchesrecid %in% c("RJQFGGZC","RJQOOUMD"))]=1
-  
-  table(df$auxhybrid)
-  
+  # if needed, manually check/refine the case if more than one stent or band. maybe have better method to do it  
   
   df$stage1C_2[which(df$auxhybrid==1)]=1
   
