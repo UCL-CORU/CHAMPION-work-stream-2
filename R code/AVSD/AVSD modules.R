@@ -711,7 +711,7 @@ AVSD_diagnosis_subtype_module<-function(df){
     usingcode=c("060601","120401","120409")
     df=searchforevidence_generic(mark="PAVSDcodes",usingcode)
     
-    usingcode=c("050601","060609","120501")
+    usingcode=c("060609","120501")
     df=searchforevidence_generic(mark="CAVSDcodes",usingcode)
   }
   
