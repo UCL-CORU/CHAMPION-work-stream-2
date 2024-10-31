@@ -670,11 +670,10 @@ FUH_diagnosis_subtype_module<-function(df){
     
 
 
-  
   df<-df %>%
-    mutate(diagsubgroup=ifelse(patcodeDIV==1,1,
-                               ifelse(patcodeTA==1,2,
-                                      ifelse(patcodeAI==1,3,
+    mutate(diagsubgroup=ifelse(patcodeAI==1,1,
+                               ifelse(patcodeDIV==1,2,
+                                      ifelse(patcodeTA==1,3,
                                              ifelse(patcodeMA==1,4,
                                                     ifelse(patcodeUAVSD==1,5,6))))))
                           
@@ -682,7 +681,7 @@ FUH_diagnosis_subtype_module<-function(df){
   table(df$diagsubgroup)
 
 
-  diagsubgroup_lab=c("1: DIV","2: Tricuspid atresia","3: Atrial isomerism","4: Maitral atresia","5: Unbalanced AVSD","6: Complex FUH")
+  diagsubgroup_lab=c("1: Atrial isomerism","2: DIV","3: Tricuspid atresia","4: Maitral atresia","5: Unbalanced AVSD","6: Complex FUH")
   df$diagsubgroupLab<-factor(df$diagsubgroup,levels=c(1:6),labels=diagsubgroup_lab,ordered=T)
 
   return(df)
